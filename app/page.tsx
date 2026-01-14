@@ -56,7 +56,6 @@ export default function HomePage() {
   const [isDark, setIsDark] = useState(true);
   const [marked, setMarked] = useState<any>(null);
 
-  // Track Job ID for persistence
   const [jobId, setJobId] = useState<string | null>(null);
 
   // Load marked.js from CDN
@@ -83,7 +82,7 @@ export default function HomePage() {
     const savedUrl = localStorage.getItem('gitreadme_url');
     if (savedUrl) setRepoUrl(savedUrl);
     if (savedJobId) {
-      console.log("🔄 Restoring job from storage:", savedJobId);
+      console.log(" Restoring job from storage:", savedJobId);
       setJobId(savedJobId);
       setIsLoading(true);
       setCurrentProblem(leetCodeProblems[Math.floor(Math.random() * leetCodeProblems.length)]);
@@ -131,7 +130,7 @@ export default function HomePage() {
       } catch (err) {
         console.error("Polling error:", err);
       }
-    }, 10000);
+    }, 7000);
 
     return () => clearInterval(interval);
   }, [jobId]);
@@ -705,7 +704,7 @@ export default function HomePage() {
 
       {/* Footer */}
       <footer className={`mt-16 text-center text-sm ${isDark ? 'text-slate-500' : 'text-gray-400'}`}>
-        <p>Made with ❤️ for developers everywhere</p>
+        <p>Made with ❤️ for developers</p>
       </footer>
     </div>
   );
